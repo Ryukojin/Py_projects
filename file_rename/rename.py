@@ -1,13 +1,18 @@
-import os, re
+import os
+import re
+from glob import glob
 
-files = [os.listdir(r"C:\Users\Fahim\Downloads\Gang Starr - One Of The Best Yet (2019)")]
-songs = [i for i in files if i.endswith(".mp3")]
+all_files = []
+for root, folder, files in os.walk(path):
+    names =  glob(os.path.join(root,'*.mp3'))
+    for f in names:
+        all_files.append(f)
 
-#Single file
+fixed = []
+for i in all_files:
+    fixed.append(re.search('^\-[A-z]\.\w\w\w',i)) 
 
+len(all_files)
 
-
-#Multi file
-map()
-
-
+phrase = 'C:\\Users\\Fahim\\Desktop\\glo\\1997 - Wu-Tang Clan - Wu-Tang Forever\\CD 2\\18 Wu-Tang Clan - Projects International Remix.mp3'
+x = re.findall("\s\-\s[A-z]*\s[A-z]*\s[A-z]*\.\w\w\w$",phrase)
