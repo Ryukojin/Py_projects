@@ -5,6 +5,8 @@ import shutil as sh
 source1 = r'c:/Users/Fahim/Downloads/Sin'
 dest1 = r'c:/Users/Fahim/Desktop/desttest/'
 
+source2 = 'C:\Users\Fahim\Documents\Projects'
+dest2 = 
 
 #FUNCTIONS
 #Initialise
