@@ -1,22 +1,19 @@
 import os
-import glob
 import datetime
 import time
 import sqlalchemy
 import pandas as pd
+from glob import glob
 
-
-msd_main_path = r'C:\Users\Fahim\Downloads\millionsongsubset'
-msd_data_path = os.path.join(msd_main_path, 'data')
-msd_add_path = os.path.join(msd_main_path, 'additionalfiles')
-assert os.path.isdir(msd_main_path), "wrong path given" #debug for existing directory check
+root_path = r'C:\Users\Fahim\Downloads\millionsongsubset'
+assert os.path.isdir(root_path), "wrong path given" #debug for existing directory check
 
 #Time lag in seconds
 def time_taken(start,finish):
     return str(datetime.timedelta(seconds = finish-start))
 
 
-filepath = r'C:\Users\Fahim\Downloads\millionsongsubset\data1.json'
+file_path = r'C:\Users\Fahim\Downloads\millionsongsubset\data1.json'
 
 def process_file(cur, path):
     """
@@ -31,7 +28,7 @@ def process_file(cur, path):
         artistName, time, similars, tags, trackId, title = value
     
     songData = (artistName, time, trackId, title)
-    cur.execute(songInsert, songData)
+    cur.execute(#songInsert, songData)
     
     print(f"Records inserted for file {path}")
 
@@ -45,7 +42,7 @@ def process_data(cur, conn, path, func):
     """
     # get all files matching extension from directory
     all_files = []
-    for root, dirs, files in os.walk(path):
+    for root, folders, files in os.walk(path):
         files = glob.glob(os.path.join(root,'*.json'))
         for f in files :
             all_files.append(os.path.abspath(f))
@@ -73,3 +70,14 @@ def main():
 if __name__ == "__main__":
     main()
     print("\n\nFinished processing!\n\n")
+
+########################################################################################################################################
+all_files = []
+for root, folders, files in os.walk(rootPath):
+    files = glob(os.path.join(root,'*.json'))
+    for f in files :
+        all_files.append(os.path.abspath(f))
+
+#msd_data_path = os.path.join(msd_main_path, 'data')
+
+len(all_files)
