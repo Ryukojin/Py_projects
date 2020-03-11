@@ -7,18 +7,28 @@ def create_database():
     :return: return's (cur, conn) a cursor and connection reference
     """
     # connect to default database
-    conn = pymysql.connect(host='127.0.0.1', user='root', password='red8Horse', database='sys', port=3306, autocommit = True)
+    conn = pymysql.connect(host='127.0.0.1', 
+                            user='root', 
+                            password='red8Horse', 
+                            database='sys', 
+                            port=3306)
     cur = conn.cursor()
 
     # create sparkify database with UTF8 encoding
     cur.execute("DROP DATABASE IF EXISTS sparkifydb")
-    cur.execute("CREATE DATABASE sparkifydb")
+    cur.execute("CREATE DATABASE sparkifydb CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci")
     
     # close connection to default database
     conn.close()
 
     # connect to sparkify database
-    conn = pymysql.connect(host='127.0.0.1', user='root', password='red8Horse', database='sparkifydb', port=3306, autocommit = True)
+    conn = pymysql.connect(host='127.0.0.1', 
+                            user='root', 
+                            password='red8Horse', 
+                            database='sparkifydb', 
+                            port=3306, 
+                            autocommit = True, 
+                            local_infile = True)
     cur = conn.cursor()
 
     return cur,con
@@ -31,7 +41,6 @@ def drop_tables(cur, conn):
     """
     for query in drop_table_queries:
         cur.execute(query)
-        conn.commit()
 
 
 def create_tables(cur, conn):
@@ -42,7 +51,6 @@ def create_tables(cur, conn):
     """
     for query in create_table_queries:
         cur.execute(query)
-        conn.commit()
 
 
 def main():
