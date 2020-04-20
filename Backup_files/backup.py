@@ -36,4 +36,3 @@ if ans == "Y":
     output(source1,dest1)
 else:
     print("\nYou have decided not to copy this segment... \nProceeding to next segment...")
-
