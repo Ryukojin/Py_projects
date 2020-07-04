@@ -1,0 +1,2 @@
+- add a pytqt interface to store src and dest dirs
+- make it a .exe
