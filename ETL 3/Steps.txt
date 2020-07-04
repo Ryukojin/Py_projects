@@ -1,9 +1,0 @@
-1. Write a scraper
-2. Put the scraper in a docker container and host it in gitlab container registry
-3. Spin up a kubernetes cluster on cloud service provider (try GCP).
-4. Use HELM to deploy airflow inside your Kubernetes cluster
-5. Write a DAG and use airflow to instantiate scraper, then scrape prices. Set it to run daily
-6. Store raw data from your scraper inside a Minio server running in Kubernetes cluster
-7. use Spark to read in raw data from minio server, clean the data, and insert it into postgres database (also running in your kubernetes cluster)
-Extra:
-8. Write a stored procedure that calculate metrics on the pricing for the item (min, max, var, rolling avg)
