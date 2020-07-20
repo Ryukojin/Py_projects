@@ -20,3 +20,7 @@ phrase = 'C:\\Users\\Fahim\\Desktop\\glo\\1997 - Wu-Tang Clan - Wu-Tang Forever\
 phrase = 'C:\\Users\\Fahim\\Desktop\\glo\\1997 - Wu-Tang Clan - Wu-Tang Forever\\CD 2\\18 Wu-Tang Clan - Remix.mp3'
 
 x = re.findall("\s\-\s[A-z]*\s?[A-z]*\s?[A-z]*\.\w\w\w$",phrase)
+
+#specify the working dir in using file browser UI
+#a text box to enter the regex pattern
+#a status box to display all files have been operated upon

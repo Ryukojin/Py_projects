@@ -1,0 +1,4 @@
+You have multiple options:
+1.add it to your system path
+2.put it in the same directory as your python script and run: webdriver.Chrome()
+3.specify the location directly via executable_path args: webdriver.Chrome(executable_path='C:/path/to/chromedriver.exe')
